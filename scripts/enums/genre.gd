@@ -1,0 +1,27 @@
+class_name Genre
+extends RefCounted
+
+enum Genre {
+    PHILOSOPHY,
+    RELIGION,
+    SOCIAL_SCIENCES,
+    LANGUAGE,
+    SCIENCE,
+    TECHNOLOGY,
+    ARTS,
+    LITERATURE,
+    HISTORY,
+    GEOGRAPHY,
+    BIOGRAPHY,
+    SCI_FI,
+    FANTASY,
+    MYSTERY,
+    ROMANCE,
+    THRILLER,
+    COMEDY,
+    HORROR,
+    SLICE_OF_LIFE,
+    HISTORICAL_FICTION,
+    CONTEMPORARY_FICTION,
+    LITERARY_FICTION,
+}
