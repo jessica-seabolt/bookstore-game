@@ -17,6 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+NamingFormats="*res://scripts/publishing/naming_formats.gd"
+PublishingData="*res://scripts/publishing/publishing_data.gd"
 Bookstore="*res://scripts/bookstore/bookstore.gd"
 
 [editor]

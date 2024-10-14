@@ -8,20 +8,20 @@ var funds = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_browse_books()
-	pass # Replace with function body.
+    _browse_books()
+    pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+    pass
 
 
 func _browse_books():
-	var inventory = Bookstore.get_inventory()
-	for item in inventory:
-		Bookstore.do_transaction(self, item)
+    var inventory = Bookstore.get_inventory()
+    for item in inventory:
+        Bookstore.do_transaction(self, item)
 
 
 func get_cust_name():
-	return _cust_name
+    return _cust_name
