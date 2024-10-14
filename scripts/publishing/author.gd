@@ -3,6 +3,11 @@ extends Node
 
 var _name
 
+
+func _init(name):
+    _name = name
+    PublishingData.add_author(self)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     pass # Replace with function body.

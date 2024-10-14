@@ -14,6 +14,11 @@ config/name="Bookstore Game"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PublishingData="*res://scripts/publishing/publishing_data.gd"
+NamingFormats="*res://scripts/publishing/naming_formats.gd"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
