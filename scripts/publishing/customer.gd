@@ -19,7 +19,8 @@ func _process(delta: float) -> void:
 
 func _browse_books():
 	var inventory = Bookstore.get_inventory()
-	print(inventory)
+	for item in inventory:
+		Bookstore.do_transaction(self, item)
 
 
 func get_cust_name():
