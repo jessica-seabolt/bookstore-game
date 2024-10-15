@@ -3,19 +3,23 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    print("Hello?")
-    $CustomerTimer.start()
-    PublishingData.get_publishers_list().append(Publisher.new("Test Publisher"))
-    Bookstore.get_inventory()[PublishingData.get_publishers_list()[0].get_catalogs()["Y1Q1"].get_books()[0]] = 20
-    Bookstore.get_inventory()[PublishingData.get_publishers_list()[0].get_catalogs()["Y1Q1"].get_books()[1]] = 3
-    Bookstore.get_inventory()[PublishingData.get_publishers_list()[0].get_catalogs()["Y1Q1"].get_books()[2]] = 14
+    # Initialize publishers and inventory
+    _init_time()
+    var publisher = Publisher.new("Test Publisher")
+    PublishingData.get_publishers_list().append(publisher)
+    var catalog = publisher.get_catalogs()["Y1Q1"]
+    Bookstore.get_inventory()[catalog.get_books()[0]] = 20
+    Bookstore.get_inventory()[catalog.get_books()[1]] = 3
+    Bookstore.get_inventory()[catalog.get_books()[2]] = 14
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-    pass
+# Initialize the time signal and start timer
+func _init_time():
+    $Time.connect("make_customer_signal", Callable(self, "_make_customer"))
+    $Time.start()
 
 
-func _on_customer_timer_timeout():
+# Create a new customer
+func _make_customer():
     print("Making customer!")
     add_child(Customer.new())
