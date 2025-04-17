@@ -82,7 +82,7 @@ func increment_month():
     if month > MONTHS_PER_YEAR:
         month = 1
         increment_year()
-    update_quarter()
+    update_quarter() 
 
 # Update quarter based on the current month
 func update_quarter():
