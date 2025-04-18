@@ -1,5 +1,16 @@
 extends Node
 
+signal make_customer_signal
+
+# Constants for time thresholds
+const MINUTES_PER_HOUR = 60
+const HOURS_PER_DAY = 24  # 24-hour format
+const DAYS_PER_WEEK = 7
+const WEEKS_PER_MONTH = 4
+const MONTHS_PER_YEAR = 12
+const QUARTERS_PER_YEAR = 4
+const CUSTOMER_INTERVAL = 10  # Every 10 minutes
+
 # Start and end hour settings, modified by the player
 var open_hour = Bookstore.get_open_hour()
 var open_minutes = Bookstore.get_open_minutes()
@@ -14,17 +25,6 @@ var week = 1
 var month = 1
 var quarter = 1
 var year = 1
-
-# Constants for time thresholds
-const MINUTES_PER_HOUR = 60
-const HOURS_PER_DAY = 24  # 24-hour format
-const DAYS_PER_WEEK = 7
-const WEEKS_PER_MONTH = 4
-const MONTHS_PER_YEAR = 12
-const QUARTERS_PER_YEAR = 4
-const CUSTOMER_INTERVAL = 10  # Every 10 minutes
-
-signal make_customer_signal
 
 # Timer timeout handler
 func _on_in_game_time_timer_timeout() -> void:
