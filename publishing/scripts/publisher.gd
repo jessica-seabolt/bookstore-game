@@ -9,14 +9,14 @@ var _is_unlocked = false
 
 
 
-func _init(publisher_name):
+func _init(publisher_name: String):
     self._name = publisher_name
     self._catalogs_dict["Y1Q1"] = Catalog.new(self) # Test catalog
     
     # TODO: Make this a UI notification
     print("New Catalog from " + self._name + " is ready!")
     for book in self._catalogs_dict["Y1Q1"].get_books():
-        print(book.get_title() + " by " + book.get_author())
+        print(book.get_title() + " by " + book.get_author().get_author_name())
     PublishingData.add_publisher(self)
 
 # Called when the node enters the scene tree for the first time.

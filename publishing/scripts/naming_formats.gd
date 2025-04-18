@@ -3,7 +3,7 @@ extends Node
 
 var _first_names = [
     "Sierra", "Ari", "Imogen", "Talin", "Starry", "Ben", "Winter", "Sky",
-    "Graham", "Chloe", "Xero", "Lou", "Bella", "Martyn", "Duke", "Holly",
+    "Toby", "Chloe", "Xero", "Lou", "Bella", "Martyn", "Duke", "Holly",
     "Albion", "Seraph", "Fe'rynn", "De'vah", "Prym", "Vel", "Rahtt", "Junior",
     "Toby", "Sullivan", "Ogilvie", "Miles", "Ivo", "Amy", "Maria", "Gerald",
     "Silver", "Blaze", "Chip", "Sage", "Dexter", "Debra", "Angel", "Harrison",

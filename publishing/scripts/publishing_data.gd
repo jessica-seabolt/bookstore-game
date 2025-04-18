@@ -22,7 +22,7 @@ func get_publishers_list():
     return self._publishers_list
     
     
-func add_author(author):
+func add_author(author: Author):
     self._authors_list.append(author)
     
     

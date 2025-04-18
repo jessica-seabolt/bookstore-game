@@ -1,11 +1,11 @@
 class_name Author
 extends Node
 
-var _name
+var _author_name
 
 
-func _init(name):
-    _name = name
+func _init(author_name):
+    _author_name = author_name
     PublishingData.add_author(self)
 
 # Called when the node enters the scene tree for the first time.
@@ -19,4 +19,4 @@ func _process(delta: float) -> void:
 
 
 func get_author_name():
-    return _name
+    return _author_name

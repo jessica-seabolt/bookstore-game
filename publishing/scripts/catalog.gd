@@ -6,7 +6,7 @@ var _publisher
 var _books
 
 
-func _init(publisher):
+func _init(publisher: Publisher):
     self._publisher = publisher
     self._books = _generate_books()
 

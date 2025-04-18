@@ -49,7 +49,7 @@ func get_close_minutes():
 
 func do_transaction(customer: Customer, item: Book):
     # TODO check if customer has money available
-    print(customer.get_cust_name() + " is buying " + item.get_title() + " for $" + str(item.get_retail_price()))
+    print(customer.get_customer_name() + " is buying " + item.get_title() + " for $" + str(item.get_retail_price()))
     if item in _inventory:
         if _inventory[item] > 1:
             _inventory[item] -= 1

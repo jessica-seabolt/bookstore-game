@@ -2,7 +2,7 @@ class_name Customer
 extends Node2D
 
 
-var _cust_name = "John Doe"
+var _customer_name = "John Doe"
 var _funds = 0
 
 
@@ -23,13 +23,13 @@ func _browse_books():
         Bookstore.do_transaction(self, item)
 
 
-func get_cust_name():
-    return _cust_name
+func get_customer_name():
+    return _customer_name
     
     
 func get_funds():
     return _funds
     
     
-func set_funds(new_funds: float):
-    _funds = new_funds
+func set_funds(funds: float):
+    _funds = funds

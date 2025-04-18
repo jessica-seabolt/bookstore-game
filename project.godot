@@ -11,15 +11,15 @@ config_version=5
 [application]
 
 config/name="Bookstore Game"
-run/main_scene="res://scenes/core/main.tscn"
+run/main_scene="res://core/scenes/main.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-NamingFormats="*res://scripts/publishing/naming_formats.gd"
-PublishingData="*res://scripts/publishing/publishing_data.gd"
-Bookstore="*res://scripts/bookstore/bookstore.gd"
+NamingFormats="*res://publishing/scripts/naming_formats.gd"
+PublishingData="*res://publishing/scripts/publishing_data.gd"
+Bookstore="*res://bookstore/scripts/bookstore.gd"
 
 [editor]
 

@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0kc54hesf1pm"]
-
-[ext_resource type="Script" uid="uid://bj656ygum13nq" path="res://scripts/bookstore/bookstore.gd" id="1_47nbe"]
-
-[node name="Bookstore" type="Node"]
-script = ExtResource("1_47nbe")

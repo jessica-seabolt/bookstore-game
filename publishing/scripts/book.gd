@@ -12,7 +12,7 @@ var _buy_price
 var _trending = false
 
 
-func _init(publisher):
+func _init(publisher: Publisher):
     self._publisher = publisher
     self._title = _init_title()
     self._author =  _init_author()
@@ -68,10 +68,12 @@ func _init_title():
 func _init_author():
     var first_name = NamingFormats.get_first_names().pick_random()
     var last_name = NamingFormats.get_last_names().pick_random()
-    return first_name + " " + last_name # Combine first and last names
+    var author_name = first_name + " " + last_name
+    return Author.new(author_name)
+    
 
 
-func _init_genre(author):
+func _init_genre(author: Author):
     # TODO: Add better genre selection
     var genre_index = randi() % Genre.Genre.values().size()
     return Genre.Genre.values()[genre_index]
