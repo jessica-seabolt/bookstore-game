@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1w1jeh2mr27x"]
 
-[ext_resource type="Script" path="res://scripts/publishing/customer.gd" id="1_6yeb7"]
+[ext_resource type="Script" uid="uid://rcr8di3mix8q" path="res://scripts/publishing/customer.gd" id="1_6yeb7"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vpe56"]
 
 [node name="Customer" type="Node2D"]
 script = ExtResource("1_6yeb7")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="CustomerSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vpe56")

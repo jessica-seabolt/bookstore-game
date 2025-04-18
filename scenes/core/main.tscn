@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2ip28laa4erk"]
 
-[ext_resource type="Script" path="res://scripts/core/main.gd" id="1_a8etn"]
-[ext_resource type="Script" path="res://scenes/core/time.gd" id="2_38a46"]
+[ext_resource type="Script" uid="uid://d2qadg45aja8x" path="res://scripts/core/main.gd" id="1_a8etn"]
+[ext_resource type="Script" uid="uid://dgesw7yyikyuu" path="res://scripts/core/time.gd" id="2_38a46"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_a8etn")

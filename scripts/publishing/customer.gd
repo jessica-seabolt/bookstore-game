@@ -3,7 +3,7 @@ extends Node2D
 
 
 var _cust_name = "John Doe"
-var funds = 0
+var _funds = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -25,3 +25,11 @@ func _browse_books():
 
 func get_cust_name():
     return _cust_name
+    
+    
+func get_funds():
+    return _funds
+    
+    
+func set_funds(new_funds: float):
+    _funds = new_funds

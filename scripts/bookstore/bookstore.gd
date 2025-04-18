@@ -51,9 +51,9 @@ func do_transaction(customer: Customer, item: Book):
     # TODO check if customer has money available
     print(customer.get_cust_name() + " is buying " + item.get_title() + " for $" + str(item.get_retail_price()))
     if item in _inventory:
-        if _inventory[item] == 1:
-            _inventory.erase(item)
-        else:
+        if _inventory[item] > 1:
             _inventory[item] -= 1
+        else:
+            _inventory.erase(item)
         _funds += item.get_retail_price()
     print("New funds: " + str(_funds))

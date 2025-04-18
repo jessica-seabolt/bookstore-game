@@ -15,7 +15,7 @@ func _ready():
 
 # Initialize the time signal and start timer
 func _init_time():
-    $Time.connect("make_customer_signal", Callable(self, "_make_customer"))
+    $Time.make_customer_signal.connect(_make_customer)
     $Time.start()
 
 
