@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://d2ip28laa4erk"]
 
 [ext_resource type="Script" uid="uid://d2qadg45aja8x" path="res://core/scripts/main.gd" id="1_3xncx"]
-[ext_resource type="Script" uid="uid://dgesw7yyikyuu" path="res://core/scripts/time.gd" id="2_oybgn"]
+[ext_resource type="Script" uid="uid://dgesw7yyikyuu" path="res://core/scripts/time.gd" id="2_3xncx"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_3xncx")
 
 [node name="Time" type="Timer" parent="."]
 wait_time = 0.1
-script = ExtResource("2_oybgn")
+script = ExtResource("2_3xncx")
 
 [connection signal="timeout" from="Time" to="Time" method="_on_in_game_time_timer_timeout"]

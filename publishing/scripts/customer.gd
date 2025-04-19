@@ -1,35 +1,50 @@
 class_name Customer
 extends Node2D
 
+const WishlistItem = preload("res://publishing/scripts/wishlist_item.gd")
 
-var _customer_name = "John Doe"
-var _funds = 0
+var _customer_name: String = NameGenerator.generate_name()
+var _budget: float = roundf(randf_range(20, 100) * 100) / 100.0
+var _wishlist: Array[WishlistItem] = []
+var _inventory: Array[Book] = []
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+    _generate_wishlist()
     _browse_books()
-    pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-    pass
-
-
-func _browse_books():
-    var inventory = Bookstore.get_inventory()
-    for item in inventory:
-        Bookstore.do_transaction(self, item)
-
-
-func get_customer_name():
+func get_customer_name() -> String:
     return _customer_name
+
+
+func _generate_wishlist() -> void:
+    var books: Array[Book] = PublishingData.get_books()
+    for book in books:
+        var appeal: float = book.get_cover_appeal()
+        var desire: float = randf()
+        if desire >= 1 - appeal:
+            _wishlist.append(WishlistItem.new(book, desire))
+            
+    _wishlist.sort_custom(_sort_by_priority)
+        
+        
+func _sort_by_priority(a: Dictionary, b: Dictionary) -> bool:
+    return b.priority > a.priority
+
+
+func _browse_books() -> void:
+    var total_spent: float = 0.0
     
-    
-func get_funds():
-    return _funds
-    
-    
-func set_funds(funds: float):
-    _funds = funds
+    for item in _wishlist:
+        var book: Book = item.book
+        var price: float = book.get_retail_price()
+        
+        if book in Bookstore.get_inventory():
+            if total_spent + price <= _budget:
+                _inventory.append(book)
+                Bookstore.remove_book(book)
+                total_spent += price
+            
+    Bookstore.do_transaction(self, _inventory)

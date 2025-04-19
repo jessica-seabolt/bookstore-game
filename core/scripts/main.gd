@@ -18,7 +18,6 @@ func _init_time():
     $Time.make_customer_signal.connect(_make_customer)
     $Time.start()
 
-
 # Create a new customer
 func _make_customer():
     print("Making customer!")
