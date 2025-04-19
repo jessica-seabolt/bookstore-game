@@ -41,11 +41,10 @@ func _browse_books() -> void:
         var book: Book = item.book
         var price: float = book.get_retail_price()
         
-        if total_spent + price <= _budget:
-            _inventory.append(book)
-            Bookstore.remove_book(book)
-            total_spent += price
-        else:
-            break
+        if book in Bookstore.get_inventory():
+            if total_spent + price <= _budget:
+                _inventory.append(book)
+                Bookstore.remove_book(book)
+                total_spent += price
             
     Bookstore.do_transaction(self, _inventory)
