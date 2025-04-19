@@ -45,6 +45,13 @@ func get_close_hour():
 
 func get_close_minutes():
     return _close_minutes
+    
+    
+func remove_book(book: Book) -> void:
+    if book in _inventory and _inventory[book] > 1:
+        _inventory[book] -= 1
+    else:
+        _inventory.erase(book)
 
 
 func do_transaction(customer: Customer, item: Book):

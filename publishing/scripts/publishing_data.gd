@@ -1,16 +1,16 @@
 class_name PublishingData
 
-static var _authors_list: Array = []
-static var _books_list: Array = []
-static var _publishers_list: Array = []
+static var _authors_list: Array[Author] = []
+static var _books_list: Array[Book] = []
+static var _publishers_list: Array[Publisher] = []
 
-static func get_authors() -> Array:
+static func get_authors() -> Array[Author]:
     return _authors_list.duplicate()
 
-static func get_books() -> Array:
+static func get_books() -> Array[Book]:
     return _books_list.duplicate()
 
-static func get_publishers() -> Array:
+static func get_publishers() -> Array[Publisher]:
     return _publishers_list.duplicate()
 
 static func add_author(author: Author) -> void:
