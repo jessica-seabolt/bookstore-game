@@ -23,15 +23,15 @@ func _generate_wishlist() -> void:
     var books: Array[Book] = PublishingData.get_books()
     for book in books:
         var appeal: float = book.get_cover_appeal()
-        var roll: float = randf()
-        if roll <= appeal:
-            _wishlist.append(WishlistItem.new(book, roll))
+        var desire: float = randf()
+        if desire >= 1 - appeal:
+            _wishlist.append(WishlistItem.new(book, desire))
             
     _wishlist.sort_custom(_sort_by_priority)
         
         
 func _sort_by_priority(a: Dictionary, b: Dictionary) -> bool:
-    return b.priority < a.priority
+    return b.priority > a.priority
 
 
 func _browse_books() -> void:
