@@ -6,7 +6,7 @@ func _ready():
     # Initialize publishers and inventory
     _init_time()
     var publisher = Publisher.new("Test Publisher")
-    PublishingData.get_publishers_list().append(publisher)
+    PublishingData.add_publisher(publisher)
     var catalog = publisher.get_catalogs()["Y1Q1"]
     Bookstore.get_inventory()[catalog.get_books()[0]] = 20
     Bookstore.get_inventory()[catalog.get_books()[1]] = 3
