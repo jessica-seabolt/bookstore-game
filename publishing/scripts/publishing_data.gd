@@ -1,34 +1,23 @@
-# Global data for storing and reading all authors, books, publishers
-extends Node
+class_name PublishingData
 
+static var _authors_list: Array = []
+static var _books_list: Array = []
+static var _publishers_list: Array = []
 
-var _authors_list = []
-var _books_list = []
-var _publishers_list = []
+static func get_authors() -> Array:
+    return _authors_list.duplicate()
 
+static func get_books() -> Array:
+    return _books_list.duplicate()
 
-func _init(): 
-    pass
+static func get_publishers() -> Array:
+    return _publishers_list.duplicate()
 
-func get_authors_list():
-    return self._authors_list
-    
-    
-func get_books_list():
-    return self._books_list
-    
+static func add_author(author: Author) -> void:
+    _authors_list.append(author)
 
-func get_publishers_list():
-    return self._publishers_list
-    
-    
-func add_author(author: Author):
-    self._authors_list.append(author)
-    
-    
-func add_book(book):
-    self._books_list.append(book)
-    
-    
-func add_publisher(publisher):
-    self._publishers_list.append(publisher)
+static func add_book(book: Book) -> void:
+    _books_list.append(book)
+
+static func add_publisher(publisher: Publisher) -> void:
+    _publishers_list.append(publisher)
