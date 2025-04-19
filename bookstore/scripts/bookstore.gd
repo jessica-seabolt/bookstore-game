@@ -1,15 +1,15 @@
 extends Node
 
 
-var _funds = 0
-var _inventory = {}
-var _open_hour = 9
-var _open_minutes = 0
-var _close_hour = 5
-var _close_minutes = 0
+var _funds: float = 0.00
+var _inventory: Dictionary[Book, int] = {}
+var _open_hour: int = 9
+var _open_minutes: int = 0
+var _close_hour: int = 17
+var _close_minutes: int = 0
 
 
-func _init():
+func _init() -> void:
     print(PublishingData)  
 
 
@@ -23,27 +23,27 @@ func _process(delta: float) -> void:
     pass
 
 
-func get_inventory():
+func get_inventory() -> Dictionary[Book, int]:
     return _inventory
 
 
-func get_funds():
+func get_funds() -> float:
     return _funds
 
 
-func get_open_hour():
+func get_open_hour() -> int:
     return _open_hour
 
 
-func get_open_minutes():
+func get_open_minutes() -> int:
     return _open_minutes
 
 
-func get_close_hour():
+func get_close_hour() -> int:
     return _close_hour
 
 
-func get_close_minutes():
+func get_close_minutes() -> int:
     return _close_minutes
     
     
@@ -54,13 +54,13 @@ func remove_book(book: Book) -> void:
         _inventory.erase(book)
 
 
-func do_transaction(customer: Customer, item: Book):
-    # TODO check if customer has money available
-    print(customer.get_customer_name() + " is buying " + item.get_title() + " for $" + str(item.get_retail_price()))
-    if item in _inventory:
-        if _inventory[item] > 1:
-            _inventory[item] -= 1
-        else:
-            _inventory.erase(item)
-        _funds += item.get_retail_price()
-    print("New funds: " + str(_funds))
+func do_transaction(customer: Customer, books: Array[Book]) -> void:
+    for book in books:
+        print("{0} is buying {1} for ${2}".format([
+            customer.get_customer_name(),
+            book.get_title(),
+            "%.2f" % book.get_retail_price()
+        ]))
+        _funds += book.get_retail_price()
+    
+    print("New funds: ${0}".format(["%.2f" % _funds]))

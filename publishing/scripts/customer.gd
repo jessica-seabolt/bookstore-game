@@ -1,10 +1,11 @@
 class_name Customer
 extends Node2D
 
+const WishlistItem = preload("res://publishing/scripts/wishlist_item.gd")
 
 var _customer_name: String = NameGenerator.generate_name()
 var _budget: float = roundf(randf_range(20, 100) * 100) / 100.0
-var _wishlist: Array[Dictionary] = []
+var _wishlist: Array[WishlistItem] = []
 var _inventory: Array[Book] = []
 
 
@@ -24,24 +25,20 @@ func _generate_wishlist() -> void:
         var appeal: float = book.get_cover_appeal()
         var roll: float = randf()
         if roll <= appeal:
-            _wishlist.append({
-                "book": book,
-                "priority": roll
-            })
-            
+            _wishlist.append(WishlistItem.new(book, roll))
             
     _wishlist.sort_custom(_sort_by_priority)
         
         
 func _sort_by_priority(a: Dictionary, b: Dictionary) -> bool:
-    return b["priority"] < a["priority"]
+    return b.priority < a.priority
 
 
 func _browse_books() -> void:
     var total_spent: float = 0.0
     
-    for entry in _wishlist:
-        var book: Book = entry["book"]
+    for item in _wishlist:
+        var book: Book = item.book
         var price: float = book.get_retail_price()
         
         if total_spent + price <= _budget:
@@ -51,5 +48,4 @@ func _browse_books() -> void:
         else:
             break
             
-    for book in _inventory:
-        Bookstore.do_transaction(self, book)
+    Bookstore.do_transaction(self, _inventory)
