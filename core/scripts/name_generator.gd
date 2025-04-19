@@ -1,7 +1,9 @@
+class_name NameGenerator
 extends Node
 
 
-var _first_names = [
+
+static var _first_names = [
     "Sierra", "Ari", "Imogen", "Talin", "Starry", "Ben", "Winter", "Sky",
     "Toby", "Chloe", "Xero", "Lou", "Bella", "Martyn", "Duke", "Holly",
     "Albion", "Seraph", "Fe'rynn", "De'vah", "Prym", "Vel", "Rahtt", "Junior",
@@ -41,7 +43,7 @@ static var _last_names = [
     "Tenderhome", "Grayheart"
 ]
 
-var _title_words = [
+static var _title_words = [
     "Covenant", "Raven", "Pursuit", "Lighthouse", "Coterie", "Fox", "Heart",
     "Silent", "Dream", "Event", "Horizon", "He", "She", "They", "It", "Red",
     "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet", "Win", "Lose",
@@ -62,13 +64,53 @@ var _title_words = [
     "Game", "Freak",
 ]
 
-func get_first_names():
-    return _first_names
+static var _formats = [
+        "The {X} of {Y}",
+        "{X}, {Y}, and {Z}",
+        "{X} with {Y}",
+        "{X} of the {Y}",
+        "{X}",
+        "The {X}",
+        "In the {X} of {Y}",
+        "{X}'s {Y}",
+        "The {X} and the {Y}",
+        "{X}: {Y}",
+        "The {X} of {Y} and {Z}",
+        "{X} and {Y}",
+        "{X} in {Y}",
+        "On the {X} of {Y}",
+        "The {X}, the {Y}, and the {Z}",
+        "The {X} in the {Y}",
+        "How {X} Became {Y}",
+        "In the {X} of {Y} and {Z}",
+        "The {X} on the {Y}",
+        "The {X} of {Y} {Z}",
+        "Because of {X}",
+        "For {X}",
+        "Dear {X}",
+        "Into {X}",
+        "{X} for {Y}",
+        "After {X}",
+        "Before {X}",
+        "{X} 101",
+        "{X} Compendium",
+        "Beginner's Guide to {X}",
+    ]
+
+static func generate_name() -> String:
+    return _first_names.pick_random() + " " + _last_names.pick_random()
     
-    
-func get_last_names():
-    return _last_names
-    
-    
-func get_title_words():
-    return _title_words
+static func generate_title() -> String:
+    var format = _formats.pick_random()
+
+    # Randomly grab up to 3 words
+    var x = _title_words.pick_random()
+    var y = _title_words.pick_random()
+    var z = _title_words.pick_random()
+
+    # Replace placeholders
+    var title = format.replace("{X}", x)
+    title = title.replace("{Y}", y)
+    title = title.replace("{Z}", z)
+
+    return title

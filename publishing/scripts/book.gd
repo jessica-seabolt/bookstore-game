@@ -62,15 +62,12 @@ func get_trending():
 
 
 func _init_title():
-    return NamingFormats.get_title_words().pick_random()
+    return NameGenerator.generate_title()
 
 
 func _init_author():
-    var first_name = NamingFormats.get_first_names().pick_random()
-    var last_name = NamingFormats.get_last_names().pick_random()
-    var author_name = first_name + " " + last_name
+    var author_name = NameGenerator.generate_name()
     return Author.new(author_name)
-    
 
 
 func _init_genre(author: Author):
