@@ -2,8 +2,8 @@ class_name Customer
 extends Node2D
 
 
-var _customer_name = "John Doe"
-var _funds = 0
+var _customer_name = NameGenerator.generate_name()
+var _budget = roundf(randf_range(20, 100) * 100) / 100.0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -25,11 +25,3 @@ func _browse_books():
 
 func get_customer_name():
     return _customer_name
-    
-    
-func get_funds():
-    return _funds
-    
-    
-func set_funds(funds: float):
-    _funds = funds

@@ -100,6 +100,7 @@ static var _formats = [
 static func generate_name() -> String:
     return _first_names.pick_random() + " " + _last_names.pick_random()
     
+    
 static func generate_title() -> String:
     var format = _formats.pick_random()
 
