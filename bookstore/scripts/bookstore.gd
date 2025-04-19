@@ -1,60 +1,49 @@
-extends Node
+class_name Bookstore
+
+static var _funds: float = 0.00
+static var _inventory: Dictionary[Book, int] = {}
+static var _open_hour: int = 9
+static var _open_minutes: int = 0
+static var _close_hour: int = 17
+static var _close_minutes: int = 0
 
 
-var _funds: float = 0.00
-var _inventory: Dictionary[Book, int] = {}
-var _open_hour: int = 9
-var _open_minutes: int = 0
-var _close_hour: int = 17
-var _close_minutes: int = 0
-
-
-func _init() -> void:
+static func _init() -> void:
     print(PublishingData)  
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-    pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-    pass
-
-
-func get_inventory() -> Dictionary[Book, int]:
+static func get_inventory() -> Dictionary[Book, int]:
     return _inventory
 
 
-func get_funds() -> float:
+static func get_funds() -> float:
     return _funds
 
 
-func get_open_hour() -> int:
+static func get_open_hour() -> int:
     return _open_hour
 
 
-func get_open_minutes() -> int:
+static func get_open_minutes() -> int:
     return _open_minutes
 
 
-func get_close_hour() -> int:
+static func get_close_hour() -> int:
     return _close_hour
 
 
-func get_close_minutes() -> int:
+static func get_close_minutes() -> int:
     return _close_minutes
     
     
-func remove_book(book: Book) -> void:
+static func remove_book(book: Book) -> void:
     if book in _inventory and _inventory[book] > 1:
         _inventory[book] -= 1
     else:
         _inventory.erase(book)
 
 
-func do_transaction(customer: Customer, books: Array[Book]) -> void:
+static func do_transaction(customer: Customer, books: Array[Book]) -> void:
     for book in books:
         print("{0} is buying {1} for ${2}".format([
             customer.get_customer_name(),
