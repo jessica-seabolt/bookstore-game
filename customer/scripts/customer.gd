@@ -1,7 +1,9 @@
 class_name Customer
 extends Node2D
 
-const WishlistItem = preload("res://publishing/scripts/wishlist_item.gd")
+signal do_transaction(customer: Customer, inventory: Array[Book])
+
+const WishlistItem = preload("res://customer/scripts/wishlist_item.gd")
 
 var _customer_name: String = NameGenerator.generate_name()
 var _budget: float = roundf(randf_range(20, 100) * 100) / 100.0
@@ -13,6 +15,7 @@ var _inventory: Array[Book] = []
 func _ready() -> void:
     _generate_wishlist()
     _browse_books()
+    queue_free()
 
 
 func get_customer_name() -> String:
@@ -30,21 +33,22 @@ func _generate_wishlist() -> void:
     _wishlist.sort_custom(_sort_by_priority)
         
         
-func _sort_by_priority(a: Dictionary, b: Dictionary) -> bool:
-    return b.priority > a.priority
+func _sort_by_priority(a: WishlistItem, b: WishlistItem) -> bool:
+    return b.get_priority() > a.get_priority()
 
 
 func _browse_books() -> void:
     var total_spent: float = 0.0
     
     for item in _wishlist:
-        var book: Book = item.book
+        var book: Book = item.get_book()
         var price: float = book.get_retail_price()
         
-        if book in Bookstore.get_inventory():
+        if book in BookstoreData.get_inventory():
             if total_spent + price <= _budget:
                 _inventory.append(book)
-                Bookstore.remove_book(book)
+                BookstoreData.remove_book(book)
                 total_spent += price
-            
-    Bookstore.do_transaction(self, _inventory)
+         
+    if (_inventory.size() > 0):  
+        do_transaction.emit(self, _inventory)

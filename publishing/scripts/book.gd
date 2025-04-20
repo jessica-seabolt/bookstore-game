@@ -2,21 +2,21 @@ class_name Book
 extends Node
 
 
-var _publisher
-var _title
-var _author
-var _genre
-var _cover_appeal
-var _retail_price
-var _buy_price
-var _trending = false
+var _author: Author
+var _publisher: Publisher
+var _title: String
+var _genre: Genre.Genre
+var _cover_appeal: float
+var _retail_price: float
+var _buy_price: float
+var _trending: bool = false
 
 
-func _init(publisher: Publisher):
+func _init(author: Author, publisher: Publisher):
+    self._author = author
     self._publisher = publisher
     self._title = _init_title()
-    self._author =  _init_author()
-    self._genre = _init_genre(self._author)
+    self._genre = _init_genre(author)
     self._cover_appeal = _init_cover_appeal()
     self._retail_price = _init_retail_price()
     self._buy_price = _init_buy_price()
@@ -65,12 +65,7 @@ func _init_title():
     return NameGenerator.generate_title()
 
 
-func _init_author():
-    var author_name = NameGenerator.generate_name()
-    return Author.new(author_name)
-
-
-func _init_genre(author: Author):
+func _init_genre(author: Author) -> Genre.Genre:
     # TODO: Add better genre selection
     var genre_index = randi() % Genre.Genre.values().size()
     return Genre.Genre.values()[genre_index]
