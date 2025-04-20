@@ -15,6 +15,11 @@ run/main_scene="res://core/scenes/main.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PublishingData="*res://publishing/scripts/globals/publishing_data.gd"
+BookstoreData="*res://bookstore/scripts/globals/bookstore_data.gd"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"

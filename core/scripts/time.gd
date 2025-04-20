@@ -1,4 +1,4 @@
-extends Node
+extends Timer
 
 signal make_customer_signal
 
@@ -12,10 +12,10 @@ const QUARTERS_PER_YEAR = 4
 const CUSTOMER_INTERVAL = 10  # Every 10 minutes
 
 # Start and end hour settings, modified by the player
-var open_hour = Bookstore.get_open_hour()
-var open_minutes = Bookstore.get_open_minutes()
-var close_hour = Bookstore.get_close_hour()
-var close_minutes = Bookstore.get_close_minutes()
+var open_hour = BookstoreData.get_open_hour()
+var open_minutes = BookstoreData.get_open_minutes()
+var close_hour = BookstoreData.get_close_hour()
+var close_minutes = BookstoreData.get_close_minutes()
 
 # Time Variables
 var minutes = open_minutes
