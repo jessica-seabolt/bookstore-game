@@ -12,11 +12,14 @@ func _ready():
     BookstoreData.add_books(catalog.get_books()[0], 20)
     BookstoreData.add_books(catalog.get_books()[1], 3)
     BookstoreData.add_books(catalog.get_books()[2], 4)
+    
+    $Bookstore.transaction_made.connect($HUD.update_last_purchase_label)
 
 
 # Initialize the time signal and start timer
 func _init_time():
     $Time.make_customer_signal.connect(_make_customer)
+    $Time.update_time.connect($HUD.update_time_label)
     $Time.start()
 
 # Create a new customer

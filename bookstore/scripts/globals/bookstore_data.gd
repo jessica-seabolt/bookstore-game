@@ -1,5 +1,7 @@
 extends Node
 
+signal funds_changed(funds: int)
+
 var _funds: float = 0.00
 var _inventory: Dictionary[Book, int] = {}
 var _open_hour: int = 9
@@ -41,6 +43,7 @@ func add_books(book: Book, quantity: int) -> void:
         
 func change_funds(amt: float) -> float:
     _funds += amt
+    funds_changed.emit(_funds)
     return _funds
     
     
