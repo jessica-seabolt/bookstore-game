@@ -1,0 +1,150 @@
+[gd_scene load_steps=3 format=3 uid="uid://di54eaaq0mmon"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_57wqm"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bktgg"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="BookRow" type="Control"]
+custom_minimum_size = Vector2(1920, 50)
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -960.0
+offset_right = 960.0
+offset_bottom = 50.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(1920, 45)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LeftPadding" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BookRowHBoxContainer" type="HBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(1800, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TitleLabel" type="Label" parent="HBoxContainer/BookRowHBoxContainer"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+autowrap_mode = 3
+
+[node name="TitleDividerPanel" type="Panel" parent="HBoxContainer/BookRowHBoxContainer"]
+custom_minimum_size = Vector2(2, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_57wqm")
+
+[node name="AuthorLabel" type="Label" parent="HBoxContainer/BookRowHBoxContainer"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+autowrap_mode = 3
+
+[node name="AuthorDividerPanel" type="Panel" parent="HBoxContainer/BookRowHBoxContainer"]
+custom_minimum_size = Vector2(2, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_57wqm")
+
+[node name="GenreLabel" type="Label" parent="HBoxContainer/BookRowHBoxContainer"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+autowrap_mode = 3
+
+[node name="GenreDividerPanel" type="Panel" parent="HBoxContainer/BookRowHBoxContainer"]
+custom_minimum_size = Vector2(2, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_57wqm")
+
+[node name="CoverAppealLabel" type="Label" parent="HBoxContainer/BookRowHBoxContainer"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+autowrap_mode = 3
+
+[node name="CoverAppealDividerPanel" type="Panel" parent="HBoxContainer/BookRowHBoxContainer"]
+custom_minimum_size = Vector2(2, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_57wqm")
+
+[node name="RetailPriceLabel" type="Label" parent="HBoxContainer/BookRowHBoxContainer"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+autowrap_mode = 3
+
+[node name="RetailPriceDividerPanel" type="Panel" parent="HBoxContainer/BookRowHBoxContainer"]
+custom_minimum_size = Vector2(2, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_57wqm")
+
+[node name="BuyPriceLabel" type="Label" parent="HBoxContainer/BookRowHBoxContainer"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+autowrap_mode = 3
+
+[node name="BuyPriceDividerPanel" type="Panel" parent="HBoxContainer/BookRowHBoxContainer"]
+custom_minimum_size = Vector2(2, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_57wqm")
+
+[node name="InStockLabel" type="Label" parent="HBoxContainer/BookRowHBoxContainer"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+autowrap_mode = 3
+
+[node name="Control" type="Control" parent="HBoxContainer/BookRowHBoxContainer"]
+custom_minimum_size = Vector2(2, 50)
+layout_mode = 2
+
+[node name="PurchaseQtyHBoxContainer" type="HBoxContainer" parent="HBoxContainer/BookRowHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MinusButton" type="Button" parent="HBoxContainer/BookRowHBoxContainer/PurchaseQtyHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-"
+
+[node name="QtyLineEdit" type="LineEdit" parent="HBoxContainer/BookRowHBoxContainer/PurchaseQtyHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+text = "0"
+
+[node name="PlusButton" type="Button" parent="HBoxContainer/BookRowHBoxContainer/PurchaseQtyHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "+"
+
+[node name="RightPadding" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BottomDividerPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(1640, 2)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bktgg")

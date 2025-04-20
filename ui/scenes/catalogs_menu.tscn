@@ -1,0 +1,132 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0rbby3r0qo6e"]
+
+[ext_resource type="Script" uid="uid://dh355l8hufrd1" path="res://ui/scripts/catalogs_menu.gd" id="1_132kp"]
+[ext_resource type="Script" uid="uid://b64d86hxabd3u" path="res://ui/scripts/book_row_v_box_container.gd" id="2_3ps04"]
+[ext_resource type="Script" uid="uid://bcb7a4fxlv6tt" path="res://ui/scripts/buy_bottom_row_v_box_container.gd" id="3_i8af6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdv46"]
+bg_color = Color(0, 0, 0, 0.14902)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ps04"]
+bg_color = Color(0.6, 0.6, 0.6, 0.2)
+
+[node name="CatalogsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_132kp")
+
+[node name="CatalogsMenuPanel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cdv46")
+
+[node name="HeaderRowVBoxContainer" type="VBoxContainer" parent="CatalogsMenuPanel"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CatalogsMenuPanel/HeaderRowVBoxContainer"]
+layout_mode = 2
+
+[node name="LeftPadding" type="Control" parent="CatalogsMenuPanel/HeaderRowVBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HeaderRowGridContainer" type="GridContainer" parent="CatalogsMenuPanel/HeaderRowVBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1800, 0)
+layout_mode = 2
+columns = 8
+
+[node name="TitleLabel" type="Label" parent="CatalogsMenuPanel/HeaderRowVBoxContainer/HBoxContainer/HeaderRowGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Title"
+
+[node name="AuthorLabel" type="Label" parent="CatalogsMenuPanel/HeaderRowVBoxContainer/HBoxContainer/HeaderRowGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Author"
+
+[node name="GenreLabel" type="Label" parent="CatalogsMenuPanel/HeaderRowVBoxContainer/HBoxContainer/HeaderRowGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Genre"
+
+[node name="CoverAppealLabel" type="Label" parent="CatalogsMenuPanel/HeaderRowVBoxContainer/HBoxContainer/HeaderRowGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Cover Appeal"
+
+[node name="RetailPriceLabel" type="Label" parent="CatalogsMenuPanel/HeaderRowVBoxContainer/HBoxContainer/HeaderRowGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Retail Price"
+
+[node name="BuyPriceLabel" type="Label" parent="CatalogsMenuPanel/HeaderRowVBoxContainer/HBoxContainer/HeaderRowGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Buy Price"
+
+[node name="InStockLabel" type="Label" parent="CatalogsMenuPanel/HeaderRowVBoxContainer/HBoxContainer/HeaderRowGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "In Stock"
+
+[node name="PurchaseQtyLabel" type="Label" parent="CatalogsMenuPanel/HeaderRowVBoxContainer/HBoxContainer/HeaderRowGridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Purchase Qty"
+
+[node name="RightPadding" type="Control" parent="CatalogsMenuPanel/HeaderRowVBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BookRowScrollContainer" type="ScrollContainer" parent="CatalogsMenuPanel/HeaderRowVBoxContainer"]
+custom_minimum_size = Vector2(0, 900)
+layout_mode = 2
+size_flags_stretch_ratio = 20.0
+
+[node name="BookRowVBoxContainer" type="VBoxContainer" parent="CatalogsMenuPanel/HeaderRowVBoxContainer/BookRowScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource("2_3ps04")
+
+[node name="Panel" type="Panel" parent="CatalogsMenuPanel/HeaderRowVBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_3ps04")
+
+[node name="BuyBottomRowHBoxContainer" type="HBoxContainer" parent="CatalogsMenuPanel/HeaderRowVBoxContainer/Panel"]
+layout_mode = 2
+offset_top = 4.0
+offset_right = 1920.0
+offset_bottom = 149.0
+size_flags_horizontal = 13
+size_flags_vertical = 3
+script = ExtResource("3_i8af6")
+
+[node name="PriceLabel" type="Label" parent="CatalogsMenuPanel/HeaderRowVBoxContainer/Panel/BuyBottomRowHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+theme_override_font_sizes/font_size = 100
+text = "Price: $0.00"
+
+[node name="BuyButton" type="Button" parent="CatalogsMenuPanel/HeaderRowVBoxContainer/Panel/BuyBottomRowHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Buy"

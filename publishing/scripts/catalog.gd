@@ -28,9 +28,8 @@ func get_books():
     return self._books
     
 
-# TODO: Generate more than 3 books lol
 func _generate_books():
     var books_list = []
-    for book in 3:
+    for book in 30:
         books_list.append(Author.new().create_book(self._publisher))
     return books_list

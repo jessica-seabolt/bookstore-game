@@ -1,5 +1,7 @@
 extends Node
 
+signal change_inventory
+
 var _funds: float = 0.00
 var _inventory: Dictionary[Book, int] = {}
 var _open_hour: int = 9
@@ -37,6 +39,8 @@ func add_books(book: Book, quantity: int) -> void:
         _inventory[book] += quantity
     else:
         _inventory[book] = quantity
+    
+    change_inventory.emit(book, _inventory[book])
         
         
 func change_funds(amt: float) -> float:
@@ -47,5 +51,7 @@ func change_funds(amt: float) -> float:
 func remove_book(book: Book) -> void:
     if book in _inventory and _inventory[book] > 1:
         _inventory[book] -= 1
+        change_inventory.emit(book, _inventory[book])
     else:
         _inventory.erase(book)
+        change_inventory.emit(book, 0)

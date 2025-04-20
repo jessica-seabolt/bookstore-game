@@ -1,6 +1,7 @@
 extends Node
 
 const customer = preload("res://customer/scenes/customer.tscn")
+const catalogs_menu = preload("res://ui/scenes/catalogs_menu.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,8 +11,12 @@ func _ready():
     PublishingData.add_publisher(publisher)
     var catalog = publisher.get_catalogs()["Y1Q1"]
     BookstoreData.add_books(catalog.get_books()[0], 20)
-    BookstoreData.add_books(catalog.get_books()[1], 3)
     BookstoreData.add_books(catalog.get_books()[2], 4)
+    
+    
+    var menu_instance = catalogs_menu.instantiate()
+    menu_instance.populate_book_rows(catalog)
+    add_child(menu_instance)
 
 
 # Initialize the time signal and start timer

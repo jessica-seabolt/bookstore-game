@@ -5,7 +5,7 @@ extends Node
 var _author: Author
 var _publisher: Publisher
 var _title: String
-var _genre: Genre.Genre
+var _genre: int
 var _cover_appeal: float
 var _retail_price: float
 var _buy_price: float
@@ -65,10 +65,10 @@ func _init_title():
     return NameGenerator.generate_title()
 
 
-func _init_genre(author: Author) -> Genre.Genre:
+func _init_genre(author: Author) -> int:
     # TODO: Add better genre selection
-    var genre_index = randi() % Genre.Genre.values().size()
-    return Genre.Genre.values()[genre_index]
+    var genre: int = randi_range(Genre.GENRES_START, Genre.GENRES_END)
+    return genre
 
 
 func _init_cover_appeal():
