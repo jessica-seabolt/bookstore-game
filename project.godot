@@ -20,6 +20,13 @@ config/icon="res://icon.svg"
 PublishingData="*res://publishing/scripts/globals/publishing_data.gd"
 BookstoreData="*res://bookstore/scripts/globals/bookstore_data.gd"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"

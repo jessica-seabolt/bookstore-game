@@ -5,32 +5,25 @@ extends Node
 var _author: Author
 var _publisher: Publisher
 var _title: String
-var _genre: Genre.Genre
-var _cover_appeal: float
-var _retail_price: float
-var _buy_price: float
-var _trending: bool = false
+var _genre: int
+var _cover_appeal: float # Value between 0.1 and 0.9 representing visual appeal
+var _retail_price: float # Price that customers pay
+var _buy_price: float # Price the bookstore pays
+var _trending: bool = false # Currently unused
 
 
 func _init(author: Author, publisher: Publisher):
     self._author = author
     self._publisher = publisher
+    
     self._title = _init_title()
-    self._genre = _init_genre(author)
+    self._genre = _init_genre()
     self._cover_appeal = _init_cover_appeal()
     self._retail_price = _init_retail_price()
     self._buy_price = _init_buy_price()
+    
+    # Register book in PublishingData
     PublishingData.add_book(self)
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-    pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-    pass
 
 
 func get_title():
@@ -65,22 +58,22 @@ func _init_title():
     return NameGenerator.generate_title()
 
 
-func _init_genre(author: Author) -> Genre.Genre:
+func _init_genre() -> int:
     # TODO: Add better genre selection
-    var genre_index = randi() % Genre.Genre.values().size()
-    return Genre.Genre.values()[genre_index]
+    var genre: int = randi_range(Genre.GENRES_START, Genre.GENRES_END)
+    return genre
 
 
 func _init_cover_appeal():
-    var appeal = randf_range(0.1, 0.9) # Random cover appeal 10% - 90%
+    var appeal = randf_range(0.1, 0.9) # Random cover appeal from 10% - 90%
     return round(appeal * 100) / 100.0
 
 
 func _init_retail_price():
-    var price = randf_range(10.00, 25.00)
+    var price = randf_range(10.00, 25.00) # Random price $10.00 - $25.00
     return round(price * 100) / 100.00
 
 
-func _init_buy_price(): # 40% - 60% of retail price
-    var price_multiplier = randf_range(0.4, 0.6)
+func _init_buy_price():
+    var price_multiplier = randf_range(0.4, 0.6) # 40% - 60% of retail price
     return round(self._retail_price * price_multiplier * 100) / 100.0
