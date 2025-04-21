@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2ip28laa4erk"]
+[gd_scene load_steps=5 format=3 uid="uid://d2ip28laa4erk"]
 
 [ext_resource type="Script" uid="uid://d2qadg45aja8x" path="res://core/scripts/main.gd" id="1_3xncx"]
 [ext_resource type="Script" uid="uid://dgesw7yyikyuu" path="res://core/scripts/time.gd" id="2_3xncx"]
 [ext_resource type="PackedScene" uid="uid://c0kc54hesf1pm" path="res://bookstore/scenes/bookstore.tscn" id="3_oybgn"]
+[ext_resource type="PackedScene" uid="uid://fuhdlyb3v21n" path="res://ui/scenes/HUD.tscn" id="4_dnmk2"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_3xncx")
@@ -12,5 +13,7 @@ wait_time = 0.1
 script = ExtResource("2_3xncx")
 
 [node name="Bookstore" parent="." instance=ExtResource("3_oybgn")]
+
+[node name="HUD" parent="." instance=ExtResource("4_dnmk2")]
 
 [connection signal="timeout" from="Time" to="Time" method="_on_in_game_time_timer_timeout"]

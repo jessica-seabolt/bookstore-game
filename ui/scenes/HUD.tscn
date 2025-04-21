@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://fuhdlyb3v21n"]
+
+[ext_resource type="Script" uid="uid://4q87yxif1a3y" path="res://ui/scripts/hud.gd" id="1_qt2tg"]
+
+[node name="HUD" type="Panel"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -575.0
+offset_right = 575.0
+offset_bottom = 40.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+script = ExtResource("1_qt2tg")
+
+[node name="HUDBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="LeftPadding" type="Control" parent="HUDBox"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="TimeLabel" type="Label" parent="HUDBox"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Time:"
+
+[node name="FundsLabel" type="Label" parent="HUDBox"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 13
+text = "Funds: $0.00"
+
+[node name="LastPurchaseLabel" type="Label" parent="HUDBox"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_font_sizes/font_size = 13
+text = "Last Purchase: None"
+
+[node name="RightPadding" type="Control" parent="HUDBox"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2

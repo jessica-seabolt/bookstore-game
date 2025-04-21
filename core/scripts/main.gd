@@ -17,11 +17,13 @@ func _ready():
     var menu_instance = catalogs_menu.instantiate()
     menu_instance.populate_book_rows(catalog)
     add_child(menu_instance)
+    $Bookstore.transaction_made.connect($HUD.update_last_purchase_label)
 
 
 # Initialize the time signal and start timer
 func _init_time():
     $Time.make_customer_signal.connect(_make_customer)
+    $Time.update_time.connect($HUD.update_time_label)
     $Time.start()
 
 # Create a new customer

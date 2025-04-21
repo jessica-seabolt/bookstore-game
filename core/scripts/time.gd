@@ -1,6 +1,7 @@
 extends Timer
 
 signal make_customer_signal
+signal update_time(time: String)
 
 # Constants for time thresholds
 const MINUTES_PER_HOUR = 60
@@ -34,18 +35,17 @@ func _on_in_game_time_timer_timeout() -> void:
     if minutes % CUSTOMER_INTERVAL == 0:
         make_customer_signal.emit()
     
-    # Print the current game time
-    print_current_time()
+    update_time.emit(format_current_time())
 
 # Increment minutes and handle rollovers
-func increment_minutes():
+func increment_minutes() -> void:
     minutes += 1
     if minutes >= MINUTES_PER_HOUR:
         minutes = 0
         increment_hour()
 
 # Increment hours and handle rollovers
-func increment_hour():
+func increment_hour() -> void:
     hour += 1
     
     # If the end hour is hit, reset to the start hour and increment the day
@@ -63,21 +63,21 @@ func increment_hour():
         increment_day()
 
 # Increment days and handle rollovers
-func increment_day():
+func increment_day() -> void:
     day += 1
     if day > DAYS_PER_WEEK:
         day = 1
         increment_week()
 
 # Increment weeks and handle rollovers
-func increment_week():
+func increment_week() -> void:
     week += 1
     if week > WEEKS_PER_MONTH:
         week = 1
         increment_month()
 
 # Increment months and handle rollovers
-func increment_month():
+func increment_month() -> void:
     month += 1
     if month > MONTHS_PER_YEAR:
         month = 1
@@ -85,18 +85,18 @@ func increment_month():
     update_quarter() 
 
 # Update quarter based on the current month
-func update_quarter():
+func update_quarter() -> void:
     quarter = ((month - 1).div(3)) + 1 # div makes GDScript shut up lol
     if quarter > QUARTERS_PER_YEAR:
         quarter = 1
 
 # Increment year
-func increment_year():
+func increment_year() -> void:
     year += 1
 
 # Print the current game time
-func print_current_time():
-    print("Today is " + str(hour).pad_zeros(2) + ":" + str(minutes).pad_zeros(2) +
+func format_current_time() -> String:
+    return(str(hour).pad_zeros(2) + ":" + str(minutes).pad_zeros(2) +
           " on D" + str(day) +
           " W" + str(week) +
           " M" + str(month) +
