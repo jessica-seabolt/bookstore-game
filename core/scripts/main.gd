@@ -11,7 +11,6 @@ func _ready():
     # Create test data
     var publisher = Publisher.new("Test Publisher")
     PublishingData.add_publisher(publisher)
-    var catalog = publisher.get_catalogs()["Y1Q1"]
     
     $Bookstore.transaction_made.connect($HUD.update_last_purchase_label)
 
