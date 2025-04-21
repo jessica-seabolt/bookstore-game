@@ -15,8 +15,11 @@ script = ExtResource("2_3xncx")
 [node name="Bookstore" parent="." instance=ExtResource("3_oybgn")]
 
 [node name="HUD" parent="." instance=ExtResource("4_dnmk2")]
-offset_left = -575.0
-offset_right = 575.0
-offset_bottom = 40.0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 0.0
+offset_right = 1920.0
+grow_horizontal = 1
 
 [connection signal="timeout" from="Time" to="Time" method="_on_in_game_time_timer_timeout"]
