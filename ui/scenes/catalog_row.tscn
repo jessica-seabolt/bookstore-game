@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://blltqejf80b0w"]
+
+[ext_resource type="Script" uid="uid://bjhwcptlhx7u3" path="res://ui/scripts/catalog_row.gd" id="1_np4w2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnuyd"]
+bg_color = Color(0.529067, 0.529067, 0.529067, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4pbv"]
+bg_color = Color(0.28485, 0.28485, 0.28485, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5q7h"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_np4w2"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="CatalogRow" type="Button"]
+custom_minimum_size = Vector2(1, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -920.0
+offset_bottom = -1030.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_xnuyd")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b4pbv")
+script = ExtResource("1_np4w2")
+
+[node name="CatalogRowHBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1000.0
+offset_bottom = 48.0
+
+[node name="LeftPadding" type="Control" parent="CatalogRowHBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CatalogRowHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PublisherLabel" type="Label" parent="CatalogRowHBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="Panel" type="Panel" parent="CatalogRowHBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l5q7h")
+
+[node name="CatalogLabel" type="Label" parent="CatalogRowHBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+
+[node name="RightPadding" type="Control" parent="CatalogRowHBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(1000, 2)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -500.0
+offset_top = -2.0
+offset_right = 500.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_np4w2")

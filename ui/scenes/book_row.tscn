@@ -18,7 +18,7 @@ offset_bottom = 50.0
 grow_horizontal = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(1920, 45)
+custom_minimum_size = Vector2(1920, 50)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -122,17 +122,20 @@ size_flags_horizontal = 3
 [node name="MinusButton" type="Button" parent="HBoxContainer/BookRowHBoxContainer/PurchaseQtyHBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 text = "-"
 
 [node name="QtyLineEdit" type="LineEdit" parent="HBoxContainer/BookRowHBoxContainer/PurchaseQtyHBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 size_flags_stretch_ratio = 2.0
 text = "0"
 
 [node name="PlusButton" type="Button" parent="HBoxContainer/BookRowHBoxContainer/PurchaseQtyHBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 text = "+"
 
 [node name="RightPadding" type="Control" parent="HBoxContainer"]
