@@ -3,7 +3,7 @@ extends Node
 
 
 
-static var _first_names = [
+static var _first_names: Array[String] = [
     "Sierra", "Ari", "Imogen", "Talin", "Starry", "Ben", "Winter", "Sky",
     "Toby", "Chloe", "Xero", "Lou", "Bella", "Martyn", "Duke", "Holly",
     "Albion", "Seraph", "Fe'rynn", "De'vah", "Prym", "Vel", "Rahtt", "Junior",
@@ -19,10 +19,25 @@ static var _first_names = [
     "Eli", "Caden", "Nyla", "Talia", "Soren", "Violet", "Cyrus", "Nico",
     "Lucia", "Rhys", "Zola", "Finnian", "Anya", "Wade", "Isla", "Jasper",
     "Opal", "Callum", "Alina", "Gale", "Ember", "Remy", "Haven", "Seth",
-    "Eira", "Sloane", "Archer", "Livia", "Beau", "Elle", "Colt"
+    "Eira", "Sloane", "Archer", "Livia", "Beau", "Elle", "Colt",  "Nina", "Joel",
+    "Tessa", "Caleb", "Lena", "Grant", "Milo", "Freya", "Theo", "June", "Emil",
+    "Layla", "Gavin", "Irene", "Victor", "Maya", "Logan", "Elsie", "Andre",
+    "Noelle", "Ronan", "Clara", "Jude", "Taryn", "Malik", "Dara", "Elias",
+    "Sadie", "Omar", "Gia", "Corin", "Nadia", "Hugo", "Maren", "Quincy", "Dana",
+    "Adrian", "Sylvie", "Reid", "Tina", "Julius", "Nell", "Samir", "Lara",
+    "Basil", "Kara", "Enzo", "Petra", "Colin", "Rhea", "Dario", "Mina",
+    "Harvey", "Lila", "Clark", "Taliah", "Frank", "Esme", "Neal", "Bianca",
+    "Louis", "Anika", "Roger", "Celine", "Terrence", "Marcy", "Salim", "Joelle",
+    "Curtis", "Nora", "Damien", "Faye", "Winston", "Amira", "Desmond",
+    "Lucille", "Edgar", "Tami", "Jared", "Nicolette", "Russell", "Zina",
+    "Alvin", "Greta", "Derrick", "Celeste", "Ray", "Dina", "Bernard", "Lumi",
+    "Trent", "Helena", "Marvin", "Tori", "Gordon", "Lilith", "Hugh", "Simone",
+    "Ewan", "Lorelai", "Trevor", "Anya", "Bruce", "Naomi", "Clint", "Ida",
+    "Warren", "Mavis", "Daryl", "Yara", "Gilbert", "Tess", "Jorge", "Ines",
+    "Donovan", "Rina", "Stuart", "Aviva", "Alistair", "Sabine"
     ]
 
-static var _last_names = [
+static var _last_names: Array[String] = [
     "Kemp", "Kendrick", "Waverly", "Bennett", "Montgomery", "Sullivan",
     "Whitaker", "Hart", "Sinclair", "Everett", "Morrison", "Lennox", "Fletcher",
     "Carson", "Ainsley", "Kerrigan", "Thorne", "Brighton", "Donovan", "Hale",
@@ -40,10 +55,22 @@ static var _last_names = [
     "Dalton", "Ashcroft", "Leighton", "Steele", "Hawkins", "Kingston", "Wells",
     "Fletcher", "Knight", "Jameson", "Morgan", "Ravenwood", "Goldtalon",
     "Silkwind", "Hollow", "Gardenclaw", "Redthorn", "Grayhome", "Tenderheart",
-    "Tenderhome", "Grayheart"
+    "Tenderhome", "Grayheart", "Bryant", "Nash", "Douglas", "Jennings",
+    "Abbott", "Spencer", "Clayton", "Rayner", "Crosby", "Hampton", "Lawson",
+    "Pratt", "Baldwin", "Milton", "Granger", "Stevens", "Tanner", "Peters",
+    "Whitman", "Brennan", "Daley", "Sharpe", "Connelly", "Gaines", "Rowland",
+    "Jefferson", "Atwood", "Harmon", "Boone", "Stafford", "Ingram", "Walton",
+    "Nolan", "Benson", "Marsh", "Hobbes", "Crane", "Sanders", "Franklin",
+    "Thorpe", "Hewitt", "Paxton", "Lowell", "Andrews", "Mayer", "Barton",
+    "Payne", "Hatcher", "Kirby", "Dawson", "Webster", "Reeves", "Chambers",
+    "Abbey", "Morton", "Gibson", "Brady", "Finch", "Jarvis", "Hutchins",
+    "Mercer", "Barron", "Riggs", "Benson", "Quimby", "Lang", "Bates",
+    "Whitmore", "Greaves", "Thornton", "Chapman", "Rowley", "Denton", "Stanley",
+    "Barker", "Hurst", "Clemons", "Keaton", "Pruitt", "Hensley", "Travis",
+    "Merrill", "Compton", "Donahue", "Adler", "Shelton", "Neville", "Farley"
 ]
 
-static var _title_words = [
+static var _title_words: Array[String] = [
     "Covenant", "Raven", "Pursuit", "Lighthouse", "Coterie", "Fox", "Heart",
     "Silent", "Dream", "Event", "Horizon", "He", "She", "They", "It", "Red",
     "Orange", "Yellow", "Green", "Blue", "Indigo", "Violet", "Win", "Lose",
@@ -61,10 +88,26 @@ static var _title_words = [
     "Sail", "Ice", "Fire", "Grass", "Water", "Air", "Earth", "Planet", "Sword",
     "Shield", "King", "Queen", "Ruler", "Lord", "Emperor", "Empress", "Gender",
     "Binary", "Stupid", "Damn", "Hell", "Crap", "Flower", "Mouse", "Code",
-    "Game", "Freak",
+    "Game", "Freak", "Wall", "Giant", "Porter", "Population", "Copyright",
+    "Drift", "Shallow", "Period", "Loop", "Observation", "Sensation", "Vain",
+    "Snake", "Consideration", "Abbey", "Basic", "Prison", "Announcement",
+    "Agreement", "Behead", "Spy", "Deadly", "Computing", "Forecast", "Point",
+    "Normal", "Sport", "Fireplace", "Haunt", "Prosper", "Dealer", "Taste",
+    "Conversation", "Revive", "Village", "Generation", "Dinner", "Insect",
+    "Insert", "Glow", "Tumble", "Rough", "Add", "Band", "Plaintiff", "Compose",
+    "Money", "Strange", "Incentive", "College", "Judge", "Clinic", "Preach",
+    "Section", "Writer", "Agony", "Help", "Elect", "Accurate", "Illness",
+    "Doll", "Ballot", "Second", "Fade", "Seal", "Hobby", "Punish", "Cry",
+    "Characteristic", "Franchise", "Turkey", "Baby", "Elegant", "Mobile",
+    "Cottage", "Ivory", "Interface", "Extreme", "Mark", "Latest", "Sympathetic",
+    "Perform", "Jacket", "Barrel", "Dog", "Breed", "Sacrifice", "Repetition",
+    "Berry", "Row", "Character", "Tight", "Sick", "Cool", "Sweet", "Stool",
+    "Facade", "Government", "Rear", "Matter", "Work", "Commission",
+    "Population", "Fairy", "Appetite", "Hunger", "Thirst", "Pickaxe", "Shovel",
+    "Chicken", "Jockey", "Lava", "Bucket", "Flint", "Steel", "Dirt", "Block"
 ]
 
-static var _formats = [
+static var _formats: Array[String] = [
         "The {X} of {Y}",
         "{X}, {Y}, and {Z}",
         "{X} with {Y}",
@@ -95,6 +138,10 @@ static var _formats = [
         "{X} 101",
         "{X} Compendium",
         "Beginner's Guide to {X}",
+        "The {X} of the {Y}",
+        "This is {X}",
+        "How {X} and {Y} Make {Z}",
+        "{X}ology"
     ]
 
 static func generate_name() -> String:
