@@ -48,7 +48,6 @@ func populate_book_rows(catalog: Catalog) -> void:
     for book in catalog.get_books():
         var new_book_row = BOOK_ROW_SCENE.instantiate()
         var qty_line_edit: LineEdit = new_book_row.get_node(QTY_LINE_EDIT)
-        var old_quantity: String = qty_line_edit.text
         
         # Set book information
         update_book_row_labels(new_book_row, book)
@@ -58,10 +57,6 @@ func populate_book_rows(catalog: Catalog) -> void:
 
         book_row_v_box_container.add_book_row(book, new_book_row, buy_bottom_row_h_box_container)
         
-        # Connect quantity change signal to update the total price
-        var buy_price := extract_price(new_book_row.get_node(BUY_PRICE_LABEL).text)
-        qty_line_edit.text_changed.connect(buy_bottom_row_h_box_container.on_qty_line_edit_text_changed.bind(
-            old_quantity, buy_bottom_row_h_box_container, buy_price))
 
 # Updates buy button state when funds change
 func on_funds_changed() -> void:

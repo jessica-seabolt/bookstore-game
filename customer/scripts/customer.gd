@@ -9,6 +9,7 @@ var _customer_name: String = NameGenerator.generate_name()
 var _budget: float = roundf(randf_range(20, 100) * 100) / 100.0 # Random budget $20-$100
 var _wishlist: Array[WishlistItem] = []
 var _inventory: Array[Book] = []
+var _opinions: Array[float] = [] # From -0.1 to 0.1
 
 
 # Called when the node enters the scene tree for the first time.
@@ -20,6 +21,9 @@ func _ready() -> void:
 
 func get_customer_name() -> String:
     return _customer_name
+    
+func get_opinions() -> Array[float]:
+    return _opinions
 
 # Creates a wishlist based on book cover appeal and random desire rolls
 func _generate_wishlist() -> void:
@@ -40,6 +44,7 @@ func _sort_by_priority(a: WishlistItem, b: WishlistItem) -> bool:
 
 # Attempts to purchase books from wishlist based on budget
 func _browse_books() -> void:
+    
     var total_spent: float = 0.0
     
     for item in _wishlist:
@@ -48,10 +53,15 @@ func _browse_books() -> void:
         
         if book in BookstoreData.get_inventory():
             if total_spent + price <= _budget:
+                _opinions.append(0.1) # Found book and can afford it
                 _inventory.append(book)
                 BookstoreData.remove_book(book) # Secures book for this customer
                 total_spent += price
-        
+            else:
+                _opinions.append(0.01) # Found book but can't afford it
+        else:
+            _opinions.append(-0.1) # Couldn't find book
+
         # Stop iterating if money is already spent
         if total_spent == _budget:
             break

@@ -2,12 +2,15 @@ extends Node
 
 signal change_inventory(book: Book, quantity: int)
 signal funds_changed(funds: float)
+signal reputation_changed(reputation: float)
 
 # Node paths
 const QTY_LINE_EDIT: String = "HBoxContainer/BookRowHBoxContainer/PurchaseQtyHBoxContainer/QtyLineEdit"
 const TITLE_LABEL: String = "HBoxContainer/BookRowHBoxContainer/TitleLabel"
 
 var _funds: float = 10000.00 # Starting funds $10,000.00
+var _reputation: float = 2.5 # Average rating between 0-5
+var _customers_served: int = 0
 var _inventory: Dictionary[Book, int] = {}
 var _open_hour: int = 9
 var _open_minutes: int = 0
@@ -21,6 +24,10 @@ func get_inventory() -> Dictionary[Book, int]:
 
 func get_funds() -> float:
     return _funds
+    
+    
+func get_reputation() -> float:
+    return _reputation
 
 
 func get_open_hour() -> int:
@@ -52,6 +59,17 @@ func change_funds(amt: float) -> float:
     _funds += amt
     funds_changed.emit()
     return _funds
+    
+    
+func change_reputation(amt: float) -> float:
+    _reputation = clamp(_reputation + amt, 0.0, 5.0)
+    reputation_changed.emit()
+    return _reputation
+    
+
+func add_served_customer() -> int:
+    _customers_served += 1
+    return _customers_served
 
 # Remove a book from inventory
 func remove_book(book: Book) -> void:

@@ -8,6 +8,10 @@ func _init() -> void:
 
 # Processes a customer's purchase
 func do_transaction(customer: Customer, books: Array[Book]) -> void:
+    
+    var opinions = customer.get_opinions()
+    var satisfaction: float = 0.0
+    
     # TODO: Let player see full sales history, not just last purchased
     for book in books:
         # Emit a signal with transaction details for the UI
@@ -19,3 +23,9 @@ func do_transaction(customer: Customer, books: Array[Book]) -> void:
         
         # Add the sale to the store's funds
         BookstoreData.change_funds(book.get_retail_price())
+        
+    for opinion in opinions:
+        satisfaction += opinion
+        
+    BookstoreData.add_served_customer() # Mark customer as served 
+    BookstoreData.change_reputation(satisfaction)

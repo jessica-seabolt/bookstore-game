@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dh355l8hufrd1" path="res://ui/scripts/books_menu.gd" id="1_ys5jb"]
 [ext_resource type="Script" uid="uid://b64d86hxabd3u" path="res://ui/scripts/book_row_v_box_container.gd" id="2_o7t8a"]
-[ext_resource type="Script" uid="uid://bcb7a4fxlv6tt" path="res://ui/scripts/buy_bottom_row_v_box_container.gd" id="3_2psfv"]
+[ext_resource type="Script" uid="uid://bcb7a4fxlv6tt" path="res://ui/scripts/buy_bottom_row_h_box_container.gd" id="3_2psfv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdv46"]
 bg_color = Color(0, 0, 0, 0.14902)

@@ -6,11 +6,13 @@ const CATALOGS_MENU = preload("res://ui/scenes/catalogs_menu.tscn")
 const TIME_LABEL: String = 'HUDHeader/HUDBox/TimeLabel' 
 const FUNDS_LABEL: String = 'HUDHeader/HUDBox/FundsLabel'
 const LAST_PURCHASE_LABEL: String = 'HUDHeader/HUDBox/LastPurchaseLabel'
-const CATALOGS_BUTTON: String = 'CatalogsButton'
+const CATALOGS_BUTTON: String = 'Panel/CatalogsButton'
+const REPUTATION_LABEL: String = 'Panel/ReputationLabel'
 
 func _ready() -> void:
     # Connect to funds changed signal to keep UI updated
     BookstoreData.funds_changed.connect(update_funds_label)
+    BookstoreData.reputation_changed.connect(update_reputation_label)
     get_node(CATALOGS_BUTTON).pressed.connect(on_catalogs_button_pressed)
 
 # Update Time display on HUD
@@ -24,6 +26,9 @@ func update_funds_label() -> void:
 # Show last purchase on HUD
 func update_last_purchase_label(lastPurchase: String) -> void:
     get_node(LAST_PURCHASE_LABEL).text = 'Last Purchase: ' + lastPurchase
+    
+func update_reputation_label() -> void:
+    get_node(REPUTATION_LABEL).text = 'Reputation: %.1f' % BookstoreData.get_reputation() 
 
 func on_catalogs_button_pressed() -> void:
     var catalogs_menu = CATALOGS_MENU.instantiate()

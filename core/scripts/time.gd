@@ -10,7 +10,7 @@ const DAYS_PER_WEEK = 7
 const WEEKS_PER_MONTH = 4
 const MONTHS_PER_YEAR = 12
 const QUARTERS_PER_YEAR = 4
-const CUSTOMER_INTERVAL = 10  # Every 10 minutes
+const CUSTOMER_INTERVAL = 15  # Default customer interval
 
 # Start and end hour settings, modified by the player
 var open_hour = BookstoreData.get_open_hour()
@@ -31,8 +31,9 @@ var year = 1
 func _on_in_game_time_timer_timeout() -> void:
     increment_minutes()
     
-    # Check if it's time to make a customer
-    if minutes % CUSTOMER_INTERVAL == 0:
+    # TODO: Make time of day effect customer spawn
+    # Check if it's time to make a customer based on reputation
+    if minutes % int(CUSTOMER_INTERVAL - BookstoreData.get_reputation()) == 0:
         make_customer_signal.emit()
     
     update_time.emit(format_current_time())
