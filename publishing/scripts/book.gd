@@ -9,7 +9,7 @@ var _genre: int
 var _cover_appeal: float # Value between 0.1 and 0.9 representing visual appeal
 var _retail_price: float # Price that customers pay
 var _buy_price: float # Price the bookstore pays
-var _trending: bool = false # Currently unused
+var _is_trending: bool = false # Currently unused
 
 
 func _init(author: Author, publisher: Publisher):
