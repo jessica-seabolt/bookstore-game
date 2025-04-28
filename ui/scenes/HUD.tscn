@@ -1,9 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://fuhdlyb3v21n"]
+[gd_scene load_steps=3 format=3 uid="uid://fuhdlyb3v21n"]
 
 [ext_resource type="Script" uid="uid://4q87yxif1a3y" path="res://ui/scripts/hud.gd" id="1_qt2tg"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qt2tg"]
-bg_color = Color(1.05888e-06, 0.536503, 0.623919, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v7876"]
 bg_color = Color(0.137533, 0.6497, 0.869913, 1)
@@ -78,11 +75,11 @@ offset_top = -40.0
 offset_right = 960.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = 0
 
 [node name="CatalogsButton" type="Button" parent="Panel"]
-custom_minimum_size = Vector2(70, 0)
+custom_minimum_size = Vector2(74, 0)
 layout_mode = 2
-theme_override_styles/pressed = SubResource("StyleBoxFlat_qt2tg")
 theme_override_styles/normal = SubResource("StyleBoxFlat_v7876")
 text = "Catalogs"
 
